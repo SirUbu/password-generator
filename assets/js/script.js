@@ -1,9 +1,21 @@
 // Assignment code here
 var generatePassword = function() {
+  var password = ``;
+  // use functions to get password length and characters 
   var characterLength= passwordLength(); 
   var characterType = passwordCharacters();
 
-
+  // using length and characters, loop through to generate random password
+  for (var i = 0; i < characterLength; i++) {
+    // get length of characterType
+    var mathMax = characterType.length;
+    // Generate random number with max number of length of characterType
+    var charNum = Math.floor(Math.random() * mathMax) + 1;
+    // select a character from the characterType using the random number as charAt
+    var charChoice = characterType.charAt(charNum);
+    // add the random charChoice to the password
+    password = password + charChoice;
+  }
 
   return password;
 };
@@ -22,9 +34,9 @@ var passwordLength = function() {
 
 // function to get character type
 var passwordCharacters = function() {
-  var characters = "";
-  var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-  var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var characters = ``;
+  var lowerCase = `abcdefghijklmnopqrstuvwxyz`;
+  var upperCase = `ABCDEFGHIJKLMNOPQRSTUVWXYZ`;
   var specialChar = `!@#$%^&*()-=_+;:'",<.>/?[{]}`;
 
   // while the characters var is an empty string, ask the user if they want to add the different character options
@@ -49,7 +61,7 @@ var passwordCharacters = function() {
     // have user confirm choices. If user want's to change, reset characters var and restart while loop
     var confirmCharacters = confirm(`Are you sure you'd like your password to include the following characters: \n${characters}`);
     if (!confirmCharacters) {
-      characters = "";
+      characters = ``;
       alert("Please make your character selections again.");
     }
   }
