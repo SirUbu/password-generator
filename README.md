@@ -26,6 +26,7 @@ You'll be met with a series of prompts to determine the different criteria for y
 Once you finish all the prompts, the password will appear in the designated section on the page. You can then re-click Generate Password to generate a new one.
 
 ## SnapShot
-![Password Generator Landing Page](./)
+![Password Generator Landing Page](./assets/images/snapshot.PNG)
 
 ## Link
+https://sirubu.github.io/password-generator/
