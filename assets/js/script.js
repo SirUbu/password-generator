@@ -3,7 +3,9 @@ var generatePassword = function() {
   var characterLength= passwordLength(); 
   var characterType = passwordCharacters();
 
-  return characterType;
+
+
+  return password;
 };
 
 // function to get password length
@@ -25,6 +27,7 @@ var passwordCharacters = function() {
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var specialChar = `!@#$%^&*()-=_+;:'",<.>/?[{]}`;
 
+  // while the characters var is an empty string, ask the user if they want to add the different character options
   while (!characters) {
     alert(`Your password must contain at least one of the following: \nLower Case Characters \nUpper Case Characters \nSpecial Characters`);
 
@@ -42,14 +45,13 @@ var passwordCharacters = function() {
     if (specialConfirm) {
       characters = characters + specialChar;
     }
-  }
 
-  var confirmCharacters = confirm(`Are you sure you'd like your password to include the following characters: \n${characters}`);
-
-  debugger;
-  if (!confirmCharacters) {
-    alert("Please make your character selections again.");
-    passwordCharacters();
+    // have user confirm choices. If user want's to change, reset characters var and restart while loop
+    var confirmCharacters = confirm(`Are you sure you'd like your password to include the following characters: \n${characters}`);
+    if (!confirmCharacters) {
+      characters = "";
+      alert("Please make your character selections again.");
+    }
   }
 
   return characters;
